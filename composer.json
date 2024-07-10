@@ -1,6 +1,6 @@
 {
     "name": "baraadark/laravel-filter",
-    "description": "LaravelFilter is a comprehensive package for Laravel that simplifies filtering models using custom query parameters. This package allows developers to easily implement and manage filter keys with custom queries, enhancing the flexibility and maintainability of their applications.",
+    "description": "LaravelFilter is a package designed to simplify the process of filtering table fields in a Laravel project. It provides a straightforward way to implement custom query filters for your models.",
     "keywords": ["laravel", "filter"],
     "type": "library",  
     "license": "MIT",
