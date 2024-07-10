@@ -169,6 +169,17 @@ Filters can be applied by sending a request with the following structure in the 
     }
 }
 ```
+**Example:**
+``` json
+{
+    "filters": {
+        "price-range": {
+            "min": 500000,
+            "max": 1000000
+        }
+    }
+}
+```
 
 ## Global vs. Local Scope
 If apply_global_scope is set to true in the configuration file, filters will be applied globally to all models when the filters are included in the request. This is not recommended as a general setting since multiple models might be used in the same function, and you might want to apply the filter only to the main model manually.
