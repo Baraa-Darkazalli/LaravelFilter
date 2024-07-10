@@ -5,7 +5,7 @@ namespace BaraaDark\LaravelFilter\Traits;
 use BaraaDark\LaravelFilter\Factories\FilterFactory;
 use Illuminate\Database\Eloquent\Builder;
 
-trait HasFilterable
+trait Filterable
 {
     /**
      * Apply the filter scope to the query.

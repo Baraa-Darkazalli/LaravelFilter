@@ -14,7 +14,7 @@ Please check the official laravel installation guide for server requirements bef
 
 You can install the package via composer:
 ``` bash
-composer require BaraaDard/LaravelFilter
+composer require BaraaDardk/LaravelFilter
 ```
 
 Next, publish the configuration file:
@@ -104,32 +104,55 @@ class FilterClass extends Filter
 
 **Example Filter Class:**
 ``` php
-namespace App\Http\Filters\Order;
-
 use BaraaDark\LaravelFilter\Filter;
-use Illuminate\Support\Facades\DB;
 
-class OrderPriceRangeFilter extends Filter
+class ProductPriceRangeFilter extends Filter
 {
     public function __construct(array $filterData)
     {
         parent::__construct($filterData);
     }
 
+    /**
+     * Get the validation rules that apply to the filter request.
+     *
+     * @return array
+     */
     public static function rules(): array
     {
         return [
-            'min' => ['required', 'numeric', 'min:0'],
-            'max' => ['required', 'numeric']
+            'min'   => ['required', 'numeric', 'min:0'],
+            'max'   => ['required', 'numeric']
         ];
     }
 
+    /**
+     * Apply filter query on related model.
+     * @param  \Illuminate\Database\Eloquent\Builder &$query
+     */
     public function apply(&$query)
     {
-        $query->whereHas('orderSubjects', function($query) {
-            $query->select(DB::raw('SUM(price) as total'))
-                ->havingRaw('total < ' . $this->max . ' AND total > ' . $this->min);
-        });
+        return $query->where('price', '>=', $this->min)
+            ->where('price', '<=', $this->max);
+    }
+}
+```
+**Product model:**
+``` php
+use BaraaDark\LaravelFilter\Traits\Filterable;
+use App\Http\Filters\Product\ProductPriceRangeFilter;
+
+class Product extends Model
+{
+    use HasFactory, Filterable;
+
+    protected $guarded = [];
+
+    public function filtersKeys(): array
+    {
+        return [
+            'price-range'   => ProductPriceRangeFilter::class
+        ];
     }
 }
 ```
