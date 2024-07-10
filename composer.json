@@ -20,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "BaraaDark\\LaravelFilter\\LaravelFilterServiceProvider"
+                "BaraaDark\\LaravelFilter\\Providers\\LaravelFilterServiceProvider"
             ]
         }
     }
