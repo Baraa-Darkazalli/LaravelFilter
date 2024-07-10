@@ -122,7 +122,7 @@ class MakeFilterCommand extends GeneratorCommand
      */
     private function setClassName()
     {
-        $name = ucfirst(Str::snake($this->argument('name')));
+        $name = ucfirst(Str::camel($this->argument('name')));
 
         $this->name = $name;
         $this->model = $this->argument('model');
