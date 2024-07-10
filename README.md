@@ -1,8 +1,8 @@
 # LaravelFilter
 LaravelFilter is a package designed to simplify the process of filtering table fields in a Laravel project. It provides a straightforward way to implement custom query filters for your models.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/baraaDark/LaravelFilter.svg?style=flat-square)](https://packagist.org/packages/BaraaDark/LaravelFilter)
-[![Total Downloads](https://img.shields.io/packagist/dt/BaraaDark/LaravelFilter.svg?style=flat-square)](https://packagist.org/packages/BaraaDark/LaravelFilter)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/baraaDark/laravel-filter.svg?style=flat-square)](https://packagist.org/packages/baraadark/laravel-filter)
+[![Total Downloads](https://img.shields.io/packagist/dt/baraadark/laravel-filter.svg?style=flat-square)](https://packagist.org/packages/baraadark/laravel-filter)
 
 ----------
 
