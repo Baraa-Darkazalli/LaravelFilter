@@ -20,7 +20,7 @@ final class LaravelFilterServiceProvider extends ServiceProvider
             ]);
 
             $this->publishes([
-                __DIR__ . '/../config/laravel-filter.php' => config_path('laravel-filter.php'),
+                __DIR__ . '\\..\\..\\config\\laravel-filter.php' => config_path('laravel-filter.php'),
             ], 'config');
         }
     }
