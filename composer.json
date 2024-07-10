@@ -26,6 +26,6 @@
             ]
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "beta",
     "version": "0.1.0-alpha"
 }
