@@ -30,7 +30,7 @@ trait HasFilterable
      */
     public static function bootFilterable()
     {
-        if (config('laravel-filter.apply_global_scope')) {
+        if (config('laravel-filter.apply_global_scope', false)) {
             static::addGlobalScope('applyFilter', function (Builder $builder) {
                 $builder->applyFilter();
             });

@@ -2,7 +2,7 @@
 
 namespace App\Http\Filters\__MODEL__;
 
-use App\Http\Filters\Filter;
+use BaraaDark\LaravelFilter\Filter;
 
 class __NAME__ extends Filter
 {
