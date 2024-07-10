@@ -9,7 +9,7 @@ final class LaravelFilterServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/laravel-filter.php', 'laravel-filter');
+        $this->mergeConfigFrom(__DIR__ . '\\..\\..\\config/laravel-filter.php', 'laravel-filter');
 
         // Register bindings or other services
 
