@@ -4,6 +4,7 @@ namespace BaraaDark\LaravelFilter\Factories;
 
 use BaraaDark\LaravelFilter\Exceptions\InvalidFilterClassException;
 use BaraaDark\LaravelFilter\Exceptions\InvalidFilterKeyException;
+use BaraaDark\LaravelFilter\Exceptions\MissingFiltersKeysMethodException;
 use BaraaDark\LaravelFilter\Filter;
 
 class FilterFactory
@@ -38,6 +39,6 @@ class FilterFactory
             throw new InvalidFilterClassException($filterClassPath);
         }
 
-        throwError(get_class($model) . ' Model doesnt have filtersKeys method');
+        throw new MissingFiltersKeysMethodException($model);
     }
 }
