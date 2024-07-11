@@ -74,10 +74,7 @@ abstract class Filter
     protected function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
     {
         $exception = $validator->getException();
-
-        throw (new $exception($validator))
-                    ->errorBag($this->errorBag)
-                    ->redirectTo($this->getRedirectUrl());
+        throw (new $exception($validator));
     }
 
     public function __get($key)
