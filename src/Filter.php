@@ -2,9 +2,6 @@
 
 namespace BaraaDark\LaravelFilter;
 
-use BaraaDark\LaravelFilter\Exceptions\InvalidFilterKeyException;
-use Exception;
-
 abstract class Filter
 {
     public function __construct(public array $filterData)
@@ -41,6 +38,7 @@ abstract class Filter
      *
      * @return array
      * @throws \Illuminate\Http\Exceptions\HttpResponseException
+     * @throws \BaraaDark\LaravelFilter\Exceptions\InvalidFilterKeyException
      */
     protected function validateKey($key, $value): bool
     {
@@ -79,6 +77,6 @@ abstract class Filter
         $classPath = explode('\\',get_class($this));
         $className = $classPath[count($classPath) -1];
 
-        return $this->filterData[$key] ?? throw new InvalidFilterKeyException($key, $className);
+        return $this->filterData[$key] ?? throw new \BaraaDark\LaravelFilter\Exceptions\InvalidFilterKeyException($key, $className);
     }
 }
