@@ -6,9 +6,9 @@ use Exception;
 
 class InvalidFilterKeyException extends Exception
 {
-    public function __construct($key, $className)
+    public function __construct($filterKey)
     {
-        $message = "Invalid key '$key' in '$className'.";
+        $message = "Invalid filter key: '$filterKey'.";
         parent::__construct($message);
     }
 }

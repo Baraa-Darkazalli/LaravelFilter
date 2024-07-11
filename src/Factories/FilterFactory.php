@@ -2,6 +2,8 @@
 
 namespace BaraaDark\LaravelFilter\Factories;
 
+use BaraaDark\LaravelFilter\Exceptions\InvalidFilterClassException;
+use BaraaDark\LaravelFilter\Exceptions\InvalidFilterKeyException;
 use BaraaDark\LaravelFilter\Filter;
 
 class FilterFactory
@@ -12,7 +14,9 @@ class FilterFactory
      *  @param array $fitlerData
      *  @param \App\Models\Model|\App\Models\AuthModel $model
      *  @return Filter
-     *  @throws \App\Exceptions\ErrorMsgException
+     *  @throws InvalidFilterKeyException
+     *  @throws InvalidFilterClassException
+     *  @throws MissingFiltersKeysMethodException
      */
     public static function create($filterKey, $filterData, $model): Filter
     {
@@ -22,7 +26,7 @@ class FilterFactory
 
             if(!key_exists($filterKey, $paths))
             {
-                throwError('Invalid filter key');
+                throw new InvalidFilterKeyException($filterKey);
             }
 
             $filterClassPath = $paths[$filterKey];
@@ -31,7 +35,7 @@ class FilterFactory
                 return new $filterClassPath($filterData);
             }
 
-            throwError('Trying to declare invalid filter class');
+            throw new InvalidFilterClassException($filterClassPath);
         }
 
         throwError(get_class($model) . ' Model doesnt have filtersKeys method');

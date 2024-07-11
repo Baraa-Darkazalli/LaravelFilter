@@ -77,6 +77,6 @@ abstract class Filter
         $classPath = explode('\\',get_class($this));
         $className = $classPath[count($classPath) -1];
 
-        return $this->filterData[$key] ?? throw new \BaraaDark\LaravelFilter\Exceptions\InvalidFilterKeyException($key, $className);
+        return $this->filterData[$key] ?? throw new \BaraaDark\LaravelFilter\Exceptions\InvalidModelFilterKeyException($key, $className);
     }
 }
