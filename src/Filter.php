@@ -29,6 +29,7 @@ abstract class Filter
     {
         foreach ($filterData as $key => $value)
         {
+            $this->validateIsKeyExists($key);
             $this->validateKey($key, $value);
         }
     }
@@ -37,7 +38,6 @@ abstract class Filter
      * Get the validation rules that apply to the filter request.
      *
      * @return array
-     * @throws \Illuminate\Http\Exceptions\HttpResponseException
      * @throws \BaraaDark\LaravelFilter\Exceptions\InvalidFilterKeyException
      */
     protected function validateKey($key, $value): bool
@@ -48,6 +48,19 @@ abstract class Filter
             $this->failedValidation($validator);
         }
         return true;
+    }
+
+    /**
+     * Validate is key exists in filter class rules keys.
+     *
+     * @throws \BaraaDark\LaravelFilter\Exceptions\InvalidFilterKeyException
+     */
+    protected function validateIsKeyExists($filterKey): void
+    {
+        if(!key_exists($filterKey, static::rules()))
+        {
+            throw new \BaraaDark\LaravelFilter\Exceptions\InvalidFilterKeyException($filterKey);
+        }
     }
 
      /**
