@@ -14,7 +14,7 @@ Please check the official laravel installation guide for server requirements bef
 
 You can install the package via composer:
 ``` bash
-composer require baraadark/laravel-filter:dev-main
+composer require baraadark/laravel-filter
 ```
 
 Next, publish the configuration file:
