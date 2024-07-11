@@ -128,6 +128,8 @@ class ProductPriceRangeFilter extends Filter
     }
 }
 ```
+Note: You can easily access the values associated with each filter key by using $this->key.
+
 **Product model:**
 ``` php
 use BaraaDark\LaravelFilter\Traits\Filterable;
