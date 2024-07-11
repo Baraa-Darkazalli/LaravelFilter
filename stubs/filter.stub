@@ -6,11 +6,6 @@ use BaraaDark\LaravelFilter\Filter;
 
 class __NAME__ extends Filter
 {
-    public function __construct(array $filterData)
-    {
-        parent::__construct($filterData);
-    }
-
     /**
      * Get the validation rules that apply to the filter request.
      *

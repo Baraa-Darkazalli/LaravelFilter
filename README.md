@@ -2,6 +2,7 @@
 LaravelFilter is a package designed to simplify the process of filtering table fields in a Laravel project. It provides a straightforward way to implement custom query filters for your models.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/baraaDark/laravel-filter.svg?style=flat-square)](https://packagist.org/packages/baraadark/laravel-filter)
+![Packagist License](https://img.shields.io/packagist/l/baraadark/laravel-filter)
 [![Total Downloads](https://img.shields.io/packagist/dt/baraadark/laravel-filter.svg?style=flat-square)](https://packagist.org/packages/baraadark/laravel-filter)
 
 ----------
@@ -52,7 +53,7 @@ class YourModel extends Model
     public function filtersKeys(): array
     {
         return [
-            // 'filter-key' => FilterKeyFilter::class
+            // 'filter-key' => FilterClass::class
         ];
     }
 }
@@ -75,11 +76,6 @@ use BaraaDark\LaravelFilter\Filter;
 
 class FilterClass extends Filter
 {
-    public function __construct(array $filterData)
-    {
-        parent::__construct($filterData);
-    }
-
     /**
      * Get the validation rules that apply to the filter request.
      *
@@ -108,11 +104,6 @@ use BaraaDark\LaravelFilter\Filter;
 
 class ProductPriceRangeFilter extends Filter
 {
-    public function __construct(array $filterData)
-    {
-        parent::__construct($filterData);
-    }
-
     /**
      * Get the validation rules that apply to the filter request.
      *
